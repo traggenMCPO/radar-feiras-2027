@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="refresh" content="900">
+<title>Radar de Expositores · Feiras Agro 2027</title>
+<style>
+  :root{--verde:#1f6f3f;--verde2:#2e8b57;--fundo:#f4f6f3;--card:#fff;--txt:#1d2a20;--sub:#5f6d63;--borda:#e1e6df}
+  *{box-sizing:border-box} body{margin:0;font-family:Segoe UI,Roboto,Arial,sans-serif;background:var(--fundo);color:var(--txt)}
+  header{background:linear-gradient(120deg,#163f26,#1f6f3f 60%,#4c9a2a);color:#fff;padding:22px 20px 16px}
+  header h1{margin:0;font-size:24px} header p{margin:6px 0 0;opacity:.85;font-size:13px}
+  .kpis{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+  .kpi{background:rgba(255,255,255,.14);border-radius:10px;padding:8px 14px;font-size:12px}
+  .kpi b{display:block;font-size:20px}
+  nav{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--borda);overflow-x:auto;white-space:nowrap;padding:0 12px}
+  nav button{border:0;background:none;padding:14px 12px;font-size:14px;cursor:pointer;color:var(--sub);border-bottom:3px solid transparent}
+  nav button.ativo{color:var(--verde);border-bottom-color:var(--verde);font-weight:600}
+  nav .n{background:#e8efe9;border-radius:10px;padding:1px 7px;margin-left:5px;font-size:11px}
+  .filtros{display:flex;gap:8px;flex-wrap:wrap;padding:14px 20px}
+  .filtros input,.filtros select{padding:9px 10px;border:1px solid var(--borda);border-radius:8px;font-size:14px;background:#fff}
+  .filtros input{flex:1;min-width:200px}
+  main{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;padding:0 20px 40px}
+  .card{background:var(--card);border-radius:12px;overflow:hidden;border:1px solid var(--borda);display:flex;flex-direction:column;transition:.15s}
+  .card:hover{box-shadow:0 6px 20px rgba(0,0,0,.08);transform:translateY(-2px)}
+  .thumb{height:170px;background:#dfe7dc center/cover no-repeat;position:relative}
+  .thumb .rede{position:absolute;left:10px;top:10px;background:rgba(0,0,0,.65);color:#fff;font-size:11px;padding:3px 8px;border-radius:6px}
+  .thumb .novo{position:absolute;right:10px;top:10px;background:#e53935;color:#fff;font-size:11px;padding:3px 8px;border-radius:6px;font-weight:700}
+  .corpo{padding:14px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .meta{font-size:12px;color:var(--sub)}
+  .card h3{margin:0;font-size:16px;line-height:1.3} .card h3 a{color:inherit;text-decoration:none} .card h3 a:hover{color:var(--verde)}
+  .resumo{font-size:14px;line-height:1.45;color:#34433a;margin:0}
+  .tags{display:flex;gap:5px;flex-wrap:wrap}
+  .tag{font-size:11px;padding:3px 8px;border-radius:12px;background:#eef3ee;color:#2d5a3b}
+  .tag.emp{background:#fff4e0;color:#8a5a00}
+  .int{font-size:11px;font-weight:700;padding:3px 9px;border-radius:12px;color:#fff;align-self:flex-start}
+  .i0{background:#1b8a3a}.i1{background:#62a83a}.i2{background:#e09b00}.i3{background:#3b7dd8}.i4{background:#c62828}.i5{background:#8a8f8b}
+  .rodape{margin-top:auto;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--sub)}
+  .rodape a{color:var(--verde);font-weight:600;text-decoration:none}
+  .vazio{grid-column:1/-1;text-align:center;color:var(--sub);padding:60px}
+</style>
+</head>
+<body>
+<header>
+  <h1>🌾 Radar de Expositores · Feiras Agro 2027</h1>
+  <p>Monitoramento automático de intenção, especulação e confirmação de participação de empresas nas feiras regionais do Brasil · Atualizado em <b>04/11/2026 12:10</b></p>
+  <div class="kpis" id="kpis"></div>
+</header>
+<nav id="abas"></nav>
+<div class="filtros">
+  <input id="busca" placeholder="Buscar empresa, feira, palavra…">
+  <select id="fFeira"><option value="">Todas as feiras</option></select>
+  <select id="fInt"><option value="">Todas as intenções</option></select>
+  <select id="fRede"><option value="">Todas as fontes</option></select>
+</div>
+<main id="lista"></main>
+<script>
+const DADOS = [];
+const SEGMENTOS = ["Máquinas Agrícolas", "Implementos", "Sementes e Genética", "Fertilizantes e Nutrição", "Defensivos e Biológicos", "Agricultura de Precisão e Tecnologia", "Irrigação e Armazenagem", "Pecuária e Saúde Animal", "Crédito, Seguros e Serviços", "Organização da Feira / Geral", "Outros"];
+const ICONES = {"Máquinas Agrícolas":"🚜","Implementos":"⚙️","Sementes e Genética":"🌱","Fertilizantes e Nutrição":"🧪",
+ "Defensivos e Biológicos":"🛡️","Agricultura de Precisão e Tecnologia":"🛰️","Irrigação e Armazenagem":"💧",
+ "Pecuária e Saúde Animal":"🐄","Crédito, Seguros e Serviços":"🏦","Organização da Feira / Geral":"🎪","Outros":"📌"};
+const CLS_INT = {"Confirmada":"i0","Provável":"i1","Especulação":"i2","Em avaliação":"i3","Não participará":"i4","Indefinida":"i5"};
+let aba = "Todos";
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const agora = Date.now();
+function placeholder(seg){
+  const ic = ICONES[seg] || "📌";
+  return "data:image/svg+xml;utf8," + encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' width='640' height='360'><defs><linearGradient id='g'><stop offset='0' stop-color='#1f6f3f'/><stop offset='1' stop-color='#8bc34a'/></linearGradient></defs><rect width='640' height='360' fill='url(#g)'/><text x='320' y='200' font-size='110' text-anchor='middle'>${ic}</text></svg>`);
+}
+function fmt(d){ if(!d) return ""; const x = new Date(d); return x.toLocaleDateString("pt-BR") + " " + x.toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"}); }
+function preencher(sel, valores){ [...new Set(valores)].filter(Boolean).sort().forEach(v => sel.insertAdjacentHTML("beforeend", `<option>${esc(v)}</option>`)); }
+preencher($("#fFeira"), DADOS.flatMap(d => d.feiras || []));
+preencher($("#fInt"), DADOS.map(d => d.intencao));
+preencher($("#fRede"), DADOS.map(d => d.rede));
+function filtrados(ignorarAba){
+  const q = $("#busca").value.toLowerCase(), fe = $("#fFeira").value, fi = $("#fInt").value, fr = $("#fRede").value;
+  return DADOS.filter(d => (ignorarAba || aba === "Todos" || d.segmento === aba)
+    && (!fe || (d.feiras||[]).includes(fe)) && (!fi || d.intencao === fi) && (!fr || d.rede === fr)
+    && (!q || JSON.stringify([d.titulo_ia,d.titulo,d.resumo,d.empresas,d.feiras,d.fonte]).toLowerCase().includes(q)));
+}
+function render(){
+  const base = filtrados(true);
+  const cont = s => s === "Todos" ? base.length : base.filter(d => d.segmento === s).length;
+  $("#abas").innerHTML = ["Todos", ...SEGMENTOS].filter(s => s === "Todos" || cont(s) > 0 || s === aba)
+    .map(s => `<button class="${s===aba?"ativo":""}" data-s="${esc(s)}">${s==="Todos"?"📰":ICONES[s]||""} ${esc(s)}<span class="n">${cont(s)}</span></button>`).join("");
+  document.querySelectorAll("#abas button").forEach(b => b.onclick = () => { aba = b.dataset.s; render(); });
+  const lista = filtrados(false);
+  const novos24 = DADOS.filter(d => agora - new Date(d.encontrado_em) < 864e5).length;
+  const empresas = new Set(DADOS.flatMap(d => d.empresas || [])).size;
+  $("#kpis").innerHTML = `<div class="kpi"><b>${DADOS.length}</b>sinais monitorados</div><div class="kpi"><b>${novos24}</b>novos em 24h</div>
+    <div class="kpi"><b>${empresas}</b>empresas citadas</div><div class="kpi"><b>${DADOS.filter(d=>d.intencao==="Confirmada").length}</b>confirmações</div>
+    <div class="kpi"><b>${DADOS.filter(d=>d.intencao==="Não participará").length}</b>desistências</div>`;
+  $("#lista").innerHTML = lista.length ? lista.map(d => {
+    const novo = agora - new Date(d.encontrado_em) < 864e5;
+    return `<article class="card">
+      <div class="thumb" style="background-image:url('${esc(d.imagem || placeholder(d.segmento))}'),url('${placeholder(d.segmento)}')">
+        <span class="rede">${esc(d.rede)}</span>${novo ? '<span class="novo">NOVO</span>' : ""}</div>
+      <div class="corpo">
+        <span class="int ${CLS_INT[d.intencao]||"i5"}">${esc(d.intencao)} · ${d.confianca||0}%</span>
+        <h3><a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.titulo_ia || d.titulo)}</a></h3>
+        <div class="meta">${ICONES[d.segmento]||""} ${esc(d.segmento)} · ${esc(d.fonte)} · ${fmt(d.publicado || d.encontrado_em)}</div>
+        <p class="resumo">${esc(d.resumo)}</p>
+        <div class="tags">${(d.feiras||[]).map(f=>`<span class="tag">🎪 ${esc(f)}</span>`).join("")}${(d.empresas||[]).map(e=>`<span class="tag emp">🏢 ${esc(e)}</span>`).join("")}</div>
+        <div class="rodape"><span>Encontrado ${fmt(d.encontrado_em)}</span><a href="${esc(d.url)}" target="_blank" rel="noopener">Abrir ↗</a></div>
+      </div></article>`;
+  }).join("") : '<div class="vazio">Nenhum sinal encontrado com esses filtros ainda. O radar roda a cada 30 minutos.</div>';
+}
+["#busca","#fFeira","#fInt","#fRede"].forEach(s => $(s).addEventListener("input", render));
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+# =====================================================================
+#  RADAR DE EXPOSITORES - FEIRAS AGRO 2027
+#  Edite este arquivo para incluir/remover feiras, fontes e redes.
+# =====================================================================
+
+ano_alvo: 2027
+
+# Endereço público da página (GitHub Pages). Troque SEU-USUARIO e o nome do repositório.
+url_pagina: "https://traggenmcpo.github.io/radar-feiras-2027/"
+
+# Só considera conteúdo publicado nos últimos N dias (evita reprocessar coisa velha)
+janela_dias: 45
+
+claude:
+  modelo: "claude-haiku-4-5"     # barato e rápido. Para análise mais fina: "claude-sonnet-4-5"
+  itens_por_lote: 8
+  max_itens_por_execucao: 80     # limite de custo por rodada (o excedente fica para a próxima)
+
+notificacao:
+  enviar_email_sem_novidades: false   # true = manda e-mail a cada 30 min mesmo sem nada novo
+  confianca_minima_email: 40          # só notifica itens com confiança >= este valor (0-100)
+
+# ---------------------------------------------------------------------
+# FEIRAS MONITORADAS  (aliases = como o nome aparece nos textos, sem acento)
+# ---------------------------------------------------------------------
+feiras:
+  - { nome: "Show Rural Coopavel",     local: "Cascavel/PR",              mes: "fev", aliases: ["show rural", "coopavel"] }
+  - { nome: "Expodireto Cotrijal",     local: "Não-Me-Toque/RS",          mes: "mar", aliases: ["expodireto", "cotrijal"] }
+  - { nome: "Tecnoshow Comigo",        local: "Rio Verde/GO",             mes: "abr", aliases: ["tecnoshow"] }
+  - { nome: "Agrishow",                local: "Ribeirão Preto/SP",        mes: "abr/mai", aliases: ["agrishow"] }
+  - { nome: "AgroBrasília",            local: "Brasília/DF",              mes: "mai", aliases: ["agrobrasilia", "agro brasilia"] }
+  - { nome: "Agrotins",                local: "Palmas/TO",                mes: "mai", aliases: ["agrotins"] }
+  - { nome: "Rondônia Rural Show",     local: "Ji-Paraná/RO",             mes: "mai", aliases: ["rondonia rural show"] }
+  - { nome: "Expoagro Afubra",         local: "Rio Pardo/RS",             mes: "mar", aliases: ["expoagro afubra", "afubra"] }
+  - { nome: "AgroBalsas",              local: "Balsas/MA",                mes: "mai", aliases: ["agrobalsas", "agro balsas"] }
+  - { nome: "Bahia Farm Show",         local: "Luís Eduardo Magalhães/BA", mes: "jun", aliases: ["bahia farm show", "bahiafarmshow"] }
+  - { nome: "Norte Show",              local: "Sinop/MT",                 mes: "abr", aliases: ["norte show"] }
+  - { nome: "Show Safra",              local: "Lucas do Rio Verde/MT",    mes: "mar", aliases: ["show safra"] }
+  - { nome: "Parecis SuperAgro",       local: "Campo Novo do Parecis/MT", mes: "jun", aliases: ["parecis superagro", "superagro"] }
+  - { nome: "Showtec",                 local: "Maracaju/MS",              mes: "jan", aliases: ["showtec"] }
+  - { nome: "Femec",                   local: "Uberlândia/MG",            mes: "mar", aliases: ["femec"] }
+  - { nome: "Agroleite",               local: "Castro/PR",                mes: "ago", aliases: ["agroleite"] }
+  - { nome: "Digital Agro",            local: "Carambeí/PR",              mes: "jun", aliases: ["digital agro"] }
+  - { nome: "Hortitec",                local: "Holambra/SP",              mes: "jun", aliases: ["hortitec"] }
+  - { nome: "Fenasucro & Agrocana",    local: "Sertãozinho/SP",           mes: "ago", aliases: ["fenasucro", "agrocana"] }
+  - { nome: "Expointer",               local: "Esteio/RS",                mes: "ago/set", aliases: ["expointer"] }
+  - { nome: "ExpoLondrina",            local: "Londrina/PR",              mes: "abr", aliases: ["expolondrina", "expo londrina"] }
+  - { nome: "Expoingá",                local: "Maringá/PR",               mes: "mai", aliases: ["expoinga"] }
+  - { nome: "Dinapec",                 local: "Campo Grande/MS",          mes: "mar", aliases: ["dinapec"] }
+  - { nome: "Femagri",                 local: "Guaxupé/MG",               mes: "fev", aliases: ["femagri"] }
+
+# Termos combinados com cada feira nas buscas de notícias
+termos_participacao: "(2027 OR expositor OR expositores OR estande OR stand OR participação OR \"próxima edição\")"
+
+# Buscas genéricas extras (não ligadas a uma feira específica)
+consultas_extras:
+  - "feiras agrícolas 2027 expositores"
+  - "calendário feiras agro 2027"
+  - "\"vai participar\" feira agro 2027"
+  - "\"não participará\" feira agrícola"
+  - "empresa desiste de participar feira agro"
+  - "estande feira agronegócio 2027 lançamento"
+  - "máquinas agrícolas feiras 2027"
+  - "venda de espaços feira agro 2027"
+
+# Segmentos usados para separar a página em abas (a IA classifica em um deles)
+segmentos:
+  - "Máquinas Agrícolas"
+  - "Implementos"
+  - "Sementes e Genética"
+  - "Fertilizantes e Nutrição"
+  - "Defensivos e Biológicos"
+  - "Agricultura de Precisão e Tecnologia"
+  - "Irrigação e Armazenagem"
+  - "Pecuária e Saúde Animal"
+  - "Crédito, Seguros e Serviços"
+  - "Organização da Feira / Geral"
+  - "Outros"
+
+# ---------------------------------------------------------------------
+# FONTES
+# ---------------------------------------------------------------------
+google_news: true
+bing_news: true
+
+# Feeds RSS de portais do agro (falhas são ignoradas; adicione quantos quiser)
+feeds_rss:
+  - "https://www.canalrural.com.br/feed/"
+  - "https://agfeed.com.br/feed/"
+  - "https://revistacultivar.com.br/rss"
+  - "https://www.comprerural.com/feed/"
+  - "https://portaldoagronegocio.com.br/feed"
+  - "https://www.agrimotor.com.br/feed/"
+  - "https://agroemdia.com.br/feed/"
+  - "https://www.agricultura.rs.gov.br/rss"
+
+# Páginas oficiais / de notícias das feiras (o robô lê os links novos dessas páginas)
+sites_oficiais:
+  - "https://www.expointer.rs.gov.br/"
+  - "https://www.expodireto.cotrijal.com.br/"
+  - "https://www.agrishow.com.br/"
+  - "https://www.showrural.com.br/"
+  - "https://www.agrobrasilia.com.br/"
+  - "https://www.bahiafarmshow.com.br/"
+  - "https://www.tecnoshowcomigo.com.br/"
+  - "https://www.agrotins.to.gov.br/"
+  - "https://www.fenasucro.com.br/"
+  - "https://www.hortitec.com.br/"
+
+youtube:
+  ativo: true                 # requer o secret YOUTUBE_API_KEY (gratuito)
+  buscas_por_execucao: 2      # cota gratuita: ~100 buscas/dia -> 2 por rodada de 30 min
+
+# ---------------------------------------------------------------------
+# REDES SOCIAIS FECHADAS VIA APIFY (pago; requer o secret APIFY_TOKEN)
+#  - a_cada_horas controla o custo (rodar a cada 30 min nessas redes sai caro)
+#  - "entrada" é enviada exatamente como está para o ator do Apify;
+#    confira o formato na página de cada ator em apify.com/store
+# ---------------------------------------------------------------------
+apify:
+  ativo: true
+  atores:
+    - nome: "Instagram"
+      ator: "apify/instagram-hashtag-scraper"
+      a_cada_horas: 2
+      entrada:
+        hashtags: ["expointer2027", "expointer", "agrishow2027", "agrishow", "expodireto2027", "expodireto",
+                   "showrural2027", "showrural", "bahiafarmshow", "agrobrasilia", "agrotins", "tecnoshowcomigo",
+                   "agrobalsas", "fenasucro", "hortitec", "nortshow", "showsafra"]
+        resultsLimit: 15
+    - nome: "TikTok"
+      ator: "clockworks/tiktok-scraper"
+      a_cada_horas: 4
+      entrada:
+        hashtags: ["expointer", "agrishow", "expodireto", "showrural", "bahiafarmshow", "agrobrasilia", "agrotins"]
+        resultsPerPage: 10
+    - nome: "X (Twitter)"
+      ator: "apidojo/tweet-scraper"
+      a_cada_horas: 2
+      entrada:
+        searchTerms: ["expointer 2027", "agrishow 2027", "expodireto 2027", "show rural 2027", "bahia farm show 2027",
+                      "agrobrasilia 2027", "agrotins 2027", "tecnoshow 2027", "expositores feira agro"]
+        maxItems: 60
+        sort: "Latest"
+    - nome: "LinkedIn"
+      ator: "harvestapi/linkedin-post-search"
+      a_cada_horas: 4
+      entrada:
+        searchQueries: ["Expointer 2027", "Agrishow 2027", "Expodireto 2027", "Show Rural 2027", "Bahia Farm Show 2027",
+                        "AgroBrasília 2027", "Tecnoshow 2027", "feira agro estande 2027"]
+        maxPosts: 15
+    - nome: "Facebook"
+      ator: "apify/facebook-posts-scraper"
+      a_cada_horas: 6
+      entrada:
+        # Páginas oficiais das feiras no Facebook - CONFIRA/AJUSTE os endereços
+        startUrls:
+          - { url: "https://www.facebook.com/expointeroficial" }
+          - { url: "https://www.facebook.com/agrishow" }
+          - { url: "https://www.facebook.com/expodiretocotrijal" }
+          - { url: "https://www.facebook.com/showruralcoopavel" }
+          - { url: "https://www.facebook.com/bahiafarmshow" }
+        resultsLimit: 10
