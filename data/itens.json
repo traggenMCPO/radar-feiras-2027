@@ -1,5 +1,93 @@
 [
  {
+  "id": "8e812a6f989dc5e5",
+  "url": "https://p1news.com.br/destaque/castrolanda-anuncia-agroleite-2027-de-2-a-6-de-agosto/",
+  "titulo": "Castrolanda anuncia Agroleite 2027 de 2 a 6 de agosto",
+  "fonte": "P1 News",
+  "tipo": "noticia",
+  "rede": "Google News",
+  "imagem": "https://p1news.com.br/wp-content/uploads/2026/11/Captura_de_tela_2026_11_05_100156_022ac13237.jpg",
+  "publicado": "2026-11-05T14:30:06+00:00",
+  "autor": null,
+  "relevante": true,
+  "empresas": [],
+  "feiras": [
+   "Agroleite"
+  ],
+  "segmento": "Organização da Feira / Geral",
+  "intencao": "Confirmada",
+  "confianca": 95,
+  "titulo_ia": "Castrolanda confirma datas do Agroleite 2027",
+  "resumo": "A Cooperativa Castrolanda anuncia oficialmente que o Agroleite 2027 será realizado de 2 a 6 de agosto em Castro-PR. A comercialização de espaços para expositores iniciará em janeiro de 2027, com a organização preparada para receber empresas da cadeia do leite.",
+  "encontrado_em": "2026-11-05T15:24:08.743026+00:00"
+ },
+ {
+  "id": "3ac220daf815c439",
+  "url": "https://www.bemparana.com.br/noticias/economia/agroleite-2027/",
+  "titulo": "Vitrine da América Latina, cooperativa anuncia datas da Agroleite 2027 no Paraná",
+  "fonte": "Bem Paraná",
+  "tipo": "noticia",
+  "rede": "Google News",
+  "imagem": "https://www.bemparana.com.br/wp-content/uploads/2026/11/agroleite.png?v=05.11.15.21.32",
+  "publicado": "2026-11-05T13:53:00+00:00",
+  "autor": null,
+  "relevante": true,
+  "empresas": [],
+  "feiras": [
+   "Agroleite"
+  ],
+  "segmento": "Organização da Feira / Geral",
+  "intencao": "Confirmada",
+  "confianca": 95,
+  "titulo_ia": "Agroleite 2027 confirmado com novidades estruturais",
+  "resumo": "Confirmação das datas do Agroleite 2027 (2-6 de agosto) com informação de que a comercialização de stands iniciará em janeiro de 2027. A organização promete mudanças na localização de ambientes e novas instalações no Parque Tecnológico Agroleite.",
+  "encontrado_em": "2026-11-05T15:24:08.743026+00:00"
+ },
+ {
+  "id": "e9db499009fd783c",
+  "url": "https://arede.info/campos-gerais/691145/agroleite-2027-sera-realizado-entre-2-e-6-de-agosto-em-castro",
+  "titulo": "Agroleite 2027 será realizado entre 2 e 6 de agosto em Castro",
+  "fonte": "aRede",
+  "tipo": "noticia",
+  "rede": "Google News",
+  "imagem": "https://cdn.arede.info/img/cover/690000/castrolanda-agroleite006911450202611051044.png?xid=2474365",
+  "publicado": "2026-11-05T13:43:55+00:00",
+  "autor": null,
+  "relevante": true,
+  "empresas": [],
+  "feiras": [
+   "Agroleite"
+  ],
+  "segmento": "Organização da Feira / Geral",
+  "intencao": "Confirmada",
+  "confianca": 95,
+  "titulo_ia": "Agroleite 2027 planejado com inovações para expositores",
+  "resumo": "O Agroleite 2027 está confirmado para agosto (2-6) com planejamento comercial em andamento. A organização trabalha na preparação de estrutura e novidades para receber expositores da cadeia produtiva do leite.",
+  "encontrado_em": "2026-11-05T15:24:08.743026+00:00"
+ },
+ {
+  "id": "70291184e1e7d847",
+  "url": "https://dpontanews.com.br/agronegocio/castrolanda-anuncia-datas-do-agroleite-2027/",
+  "titulo": "Castrolanda anuncia datas do Agroleite 2027",
+  "fonte": "D'Ponta News",
+  "tipo": "noticia",
+  "rede": "Bing News",
+  "imagem": "http://www.bing.com/th?id=ONUT.aD87eIyY68DqK1CyxkA2hw&w=640&h=360&c=7",
+  "publicado": "2026-11-05T03:10:00+00:00",
+  "autor": null,
+  "relevante": true,
+  "empresas": [],
+  "feiras": [
+   "Agroleite"
+  ],
+  "segmento": "Organização da Feira / Geral",
+  "intencao": "Confirmada",
+  "confianca": 95,
+  "titulo_ia": "Castrolanda confirma realização do Agroleite 2027",
+  "resumo": "Confirmação oficial das datas do Agroleite 2027 (2-6 de agosto) no Parque Tecnológico Agroleite em Castro-PR. O evento reunirá produtores, empresas e pesquisadores da cadeia do leite para apresentar tecnologias e inovações.",
+  "encontrado_em": "2026-11-05T15:24:08.743026+00:00"
+ },
+ {
   "id": "93f8d39fd4220257",
   "url": "https://opresenterural.com.br/agroleite-2027-sera-realizado-de-2-a-6-de-agosto-em-castro/",
   "titulo": "Agroleite 2027 será realizado de 2 a 6 de agosto em Castro",
