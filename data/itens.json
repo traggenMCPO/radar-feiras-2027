@@ -1,5 +1,49 @@
 [
  {
+  "id": "c029e35439188a23",
+  "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNa0Q3SFAyNXdlSEJYRGZOSzZZSm0wd2dLNk9QRFdFMndjMnBkb2o1cnFTRjdmTmROcVBfZ3paWk1SbVBGTE11aFhJT1JEVVhIZmh4NlNaTm54bmphQVZScEhVVllNcFRLZVBRMmptc19CUDhXS0d1ZlhTNVN2cGxVS2tuZkJldzVmZnVqQThLUkhRejRZdXVrYmpOWXpXdw?oc=5",
+  "titulo": "Agroleite 2027 already has a date set: August 2 to 6 in Castro",
+  "fonte": "bntonline.com.br",
+  "tipo": "noticia",
+  "rede": "Google News",
+  "imagem": null,
+  "publicado": "2026-11-05T13:54:01+00:00",
+  "autor": null,
+  "relevante": true,
+  "empresas": [],
+  "feiras": [
+   "Agroleite"
+  ],
+  "segmento": "Organização da Feira / Geral",
+  "intencao": "Confirmada",
+  "confianca": 95,
+  "titulo_ia": "Agroleite 2027 confirma datas: 2 a 6 de agosto em Castro",
+  "resumo": "A Cooperativa Castrolanda anuncia oficialmente que o Agroleite 2027 será realizado de 2 a 6 de agosto no Parque Tecnológico Agroleite em Castro, PR. A comercialização de espaços para stands iniciará em janeiro de 2027, confirmando a realização do evento e abertura para participação de expositores.",
+  "encontrado_em": "2026-11-05T16:30:13.123059+00:00"
+ },
+ {
+  "id": "a2f81038d2d41242",
+  "url": "https://paranacooperativo.coop.br/noticias-economia/castrolanda-anuncia-agroleite-2027-de-2-a-6-de-agosto",
+  "titulo": "Castrolanda anuncia Agroleite 2027 de 2 a 6 de agosto",
+  "fonte": "Sistema OCEPAR",
+  "tipo": "noticia",
+  "rede": "Google News",
+  "imagem": "https://paranacooperativo.coop.br/images/comunicacao/2026/noticias/11/05/castrolanda/castrolanda_05_11_2026.webp",
+  "publicado": "2026-11-05T12:04:26+00:00",
+  "autor": null,
+  "relevante": true,
+  "empresas": [],
+  "feiras": [
+   "Agroleite"
+  ],
+  "segmento": "Organização da Feira / Geral",
+  "intencao": "Confirmada",
+  "confianca": 95,
+  "titulo_ia": "Castrolanda confirma Agroleite 2027 com plano comercial em andamento",
+  "resumo": "Castrolanda anuncia Agroleite 2027 para 2 a 6 de agosto em Castro, com ênfase na reunião de players da cadeia leiteira. A equipe comercial prepara plano comercial para venda de espaços, iniciando em janeiro de 2027, sinalizando disponibilidade de estandes para expositores.",
+  "encontrado_em": "2026-11-05T16:30:13.123059+00:00"
+ },
+ {
   "id": "8e812a6f989dc5e5",
   "url": "https://p1news.com.br/destaque/castrolanda-anuncia-agroleite-2027-de-2-a-6-de-agosto/",
   "titulo": "Castrolanda anuncia Agroleite 2027 de 2 a 6 de agosto",
